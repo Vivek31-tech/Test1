@@ -1,7 +1,6 @@
-FROM debian:sid
-LABEL version="1.1"
-LABEL description="WhatWaf Dockerized"
-LABEL author="Ekultek"
-COPY bootstrap.sh /tmp/bootstrap.sh
-RUN chmod +x /tmp/bootstrap.sh
-RUN bash -c /tmp/bootstrap.sh
+From ubuntu
+RUN apt-get update && apt-get install -y tzdata
+RUN apt-get -y install apache2
+ADD index.html /var/www/html
+ENTRYPOINT ["apachectl", "-D", "FOREGROUND"]
+ENV name Vivekdhiman
